@@ -25,7 +25,12 @@ class MemberRepositoryTest {
         Member findMember = memberRepository.find(savedId);
 
         // then
-        Assertions.assertEquals(findMember.getId(), member.getId());
-        Assertions.assertEquals(findMember.getUsername(), member.getUsername());
+//        Assertions.assertThat(findMember.getId(), member.getId());
+//        Assertions.assertThat(findMember.getUsername(), member.getUsername());
+//        Assertions.assertThat(findMember).isEqualTo(member); // true
+        // Transactinal로 묶인 같은 영속성 컨텍스트 안에서는 id값이 같으면 같은 entity로 인식
+
+
     }
+
 }
