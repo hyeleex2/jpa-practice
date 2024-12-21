@@ -20,6 +20,14 @@ public class ItemService {
         this.repository.save(item);
     }
 
+    @Transactional(readOnly = false)
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = repository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+    }
+
     public Item findOne(Long id) {
         return this.repository.findOne(id);
     }
