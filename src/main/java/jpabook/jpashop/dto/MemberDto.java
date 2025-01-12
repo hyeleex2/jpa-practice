@@ -1,8 +1,24 @@
 package jpabook.jpashop.dto;
 
+import jpabook.jpashop.domain.Address;
 import lombok.*;
 
 public class MemberDto {
+
+    @Data
+    @AllArgsConstructor
+    public static class Result<T> {
+        private int count;
+        private T data;
+    }
+
+    @AllArgsConstructor
+    @Data
+    public static class MemberListDto {
+//        private Long id;
+        private String name;
+//        private Address address;
+    }
 
     @Data
     @NoArgsConstructor
