@@ -14,6 +14,7 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepoistory repsository;
+    private final MemberRepoistory memberRepoistory;
 
     @Transactional
     public Long join(Member member) {
@@ -36,6 +37,15 @@ public class MemberService {
 
     public Member findOne(Long id) {
         return this.repsository.findOne(id);
+    }
+
+    @Transactional
+    // 반환값을 member 로 하면 그냥 update만 하는 게 아니기 때문에,
+    // id 정도만 반환하거나 그냥 void로 하는 게 좋음.
+    public void update(Long id, String name) {
+        Member member = memberRepoistory.findOne(id);
+        member.setName(name);
+
     }
 }
 
